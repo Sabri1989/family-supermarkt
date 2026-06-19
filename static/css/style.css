@@ -1936,124 +1936,177 @@ html {
     box-shadow: 0 4px 15px rgba(245,166,35,0.2);
 }
 
-/* ===== تحسينات الجوال ===== */
+/* ===== تحسينات الجوال الاحترافية ===== */
 
-/* للشاشات الصغيرة (جوال) */
-@media (max-width: 768px) {
-    /* تصغير الشعار */
-    .header-logo {
-        max-width: 200px !important;
-    }
-
-    /* تحسين عرض المنتجات */
-    .product-card {
-        margin-bottom: 20px;
-    }
-
-    /* تصغير الصور */
-    .product-img {
-        height: 150px;
-    }
-
-    /* تصغير الخطوط */
-    .product-title {
-        font-size: 0.9rem;
-    }
-    .product-price {
-        font-size: 1rem;
-    }
-
-    /* تحسين أزرار الإضافة */
-    .btn-add-cart {
-        font-size: 0.75rem;
-        padding: 4px 10px;
-    }
-
-    /* تحسين عرض المودال */
-    .modal-dialog {
-        margin: 10px;
-    }
-    .modal-content {
-        border-radius: 16px;
-    }
-
-    /* تصغير النص الترحيبي */
-    .animated-text {
-        font-size: 0.9rem;
-        padding: 6px 12px;
-    }
-
-    /* تحسين عرض الكاروسيل */
-    .carousel-item img {
-        height: 200px;
-        object-fit: cover;
-    }
-    .carousel-caption {
-        padding: 10px;
-        bottom: 15px;
-        left: 15px;
-        right: 15px;
-    }
-    .carousel-caption h3 {
-        font-size: 1rem;
-    }
-    .carousel-caption p {
-        font-size: 0.8rem;
-    }
-    .carousel-caption .offer-price {
-        font-size: 0.8rem;
-        padding: 4px 12px;
-    }
-
-    /* تحسين عرض الفلاتر */
-    .filter-badge {
-        font-size: 0.7rem;
-        padding: 4px 10px;
-    }
-    .price-input {
-        width: 70px;
-        font-size: 0.7rem;
-    }
-
-    /* تحسين عرض العروض والمثلجات */
-    .ice-cream-header h2 {
-        font-size: 1.2rem;
-    }
-    .ice-cream-img {
-        height: 130px;
-    }
-
-    /* تحسين الفوتر */
-    .footer .social-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
-    }
-    .footer-links a {
-        font-size: 0.7rem;
-    }
+/* شريط التنقل */
+.navbar {
+    padding: 0.5rem 0 !important;
+    background: linear-gradient(135deg, rgba(13, 71, 161, 0.95), rgba(21, 101, 192, 0.95)) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+.navbar-brand {
+    font-size: 1rem !important;
+}
+.nav-link {
+    font-size: 0.8rem !important;
+    padding: 6px 10px !important;
+}
+.navbar-toggler {
+    border: none !important;
+    padding: 4px 8px !important;
+}
+.navbar-toggler-icon {
+    width: 24px !important;
+    height: 24px !important;
 }
 
-/* للشاشات الصغيرة جداً (جوال صغير) */
-@media (max-width: 480px) {
-    .product-img {
-        height: 120px;
-    }
-    .product-title {
-        font-size: 0.8rem;
-    }
-    .product-price {
-        font-size: 0.9rem;
-    }
-    .btn-add-cart {
-        font-size: 0.65rem;
-        padding: 3px 8px;
-    }
-    .header-logo {
-        max-width: 160px !important;
-    }
-    .welcome-text .animated-text {
-        font-size: 0.75rem;
-        padding: 4px 10px;
-    }
+/* الكاروسيل */
+.carousel-item img {
+    height: 180px !important;
+    object-fit: cover !important;
+}
+.carousel-caption {
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent) !important;
+    border-radius: 12px !important;
+    padding: 12px !important;
+    bottom: 10px !important;
+    left: 10px !important;
+    right: 10px !important;
+}
+.carousel-caption h3 {
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 2px !important;
+}
+.carousel-caption p {
+    font-size: 0.7rem !important;
+    margin-bottom: 4px !important;
+}
+.carousel-caption .offer-price {
+    font-size: 0.7rem !important;
+    padding: 3px 12px !important;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 28px !important;
+    height: 28px !important;
+    padding: 12px !important;
+}
+
+/* المنتجات */
+.product-card {
+    border-radius: 14px !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06) !important;
+    margin-bottom: 16px !important;
+}
+.product-img {
+    height: 130px !important;
+}
+.product-title {
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+}
+.product-price {
+    font-size: 0.9rem !important;
+    color: #0d47a1 !important;
+}
+.btn-add-cart {
+    font-size: 0.65rem !important;
+    padding: 4px 10px !important;
+    background: linear-gradient(135deg, #f5a623, #e69500) !important;
+    border-radius: 20px !important;
+    color: #0d47a1 !important;
+    font-weight: 600 !important;
+}
+
+/* الفلاتر */
+.filter-badge {
+    font-size: 0.65rem !important;
+    padding: 4px 10px !important;
+    border-radius: 30px !important;
+}
+.price-input {
+    width: 60px !important;
+    font-size: 0.65rem !important;
+}
+.price-filter-btn, .reset-btn {
+    font-size: 0.65rem !important;
+    padding: 4px 12px !important;
+}
+
+/* العناوين */
+.section-title h2 {
+    font-size: 1.2rem !important;
+}
+.ice-cream-header h2 {
+    font-size: 1.1rem !important;
+}
+.welcome-text .animated-text {
+    font-size: 0.8rem !important;
+    padding: 6px 14px !important;
+}
+
+/* الفوتر */
+.footer .social-icon {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 1rem !important;
+}
+.footer-links a {
+    font-size: 0.7rem !important;
+}
+.copyright {
+    font-size: 0.6rem !important;
+}
+
+/* أزرار ثابتة */
+.shop-now-btn {
+    padding: 6px 14px !important;
+    font-size: 0.7rem !important;
+    bottom: 80px !important;
+    right: 10px !important;
+}
+.scroll-top {
+    width: 32px !important;
+    height: 32px !important;
+    bottom: 20px !important;
+    right: 10px !important;
+}
+
+/* بطاقات العروض والمثلجات */
+.offers-section {
+    padding: 20px 10px !important;
+}
+.ice-cream-img {
+    height: 120px !important;
+}
+.ice-cream-card .product-title {
+    font-size: 0.75rem !important;
+}
+
+/* تحسين المودال */
+.modal-dialog {
+    margin: 8px !important;
+}
+.modal-content {
+    border-radius: 16px !important;
+}
+.modal-body {
+    padding: 16px !important;
+}
+.modal-header {
+    padding: 12px 16px !important;
+}
+
+/* جودة | ثقة | عائلة */
+.quality-card {
+    padding: 8px 12px !important;
+    margin: 10px auto !important;
+}
+.quality-item {
+    font-size: 0.7rem !important;
+}
+.quality-item i {
+    font-size: 14px !important;
 }
