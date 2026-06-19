@@ -1,7 +1,0 @@
-Flask
-flask-cors
-flask-login
-werkzeug
-gunicorn
-Pillow
-zxcvbn
