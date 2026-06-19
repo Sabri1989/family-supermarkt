@@ -1936,3 +1936,124 @@ html {
     box-shadow: 0 4px 15px rgba(245,166,35,0.2);
 }
 
+/* ===== تحسينات الجوال ===== */
+
+/* للشاشات الصغيرة (جوال) */
+@media (max-width: 768px) {
+    /* تصغير الشعار */
+    .header-logo {
+        max-width: 200px !important;
+    }
+
+    /* تحسين عرض المنتجات */
+    .product-card {
+        margin-bottom: 20px;
+    }
+
+    /* تصغير الصور */
+    .product-img {
+        height: 150px;
+    }
+
+    /* تصغير الخطوط */
+    .product-title {
+        font-size: 0.9rem;
+    }
+    .product-price {
+        font-size: 1rem;
+    }
+
+    /* تحسين أزرار الإضافة */
+    .btn-add-cart {
+        font-size: 0.75rem;
+        padding: 4px 10px;
+    }
+
+    /* تحسين عرض المودال */
+    .modal-dialog {
+        margin: 10px;
+    }
+    .modal-content {
+        border-radius: 16px;
+    }
+
+    /* تصغير النص الترحيبي */
+    .animated-text {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+
+    /* تحسين عرض الكاروسيل */
+    .carousel-item img {
+        height: 200px;
+        object-fit: cover;
+    }
+    .carousel-caption {
+        padding: 10px;
+        bottom: 15px;
+        left: 15px;
+        right: 15px;
+    }
+    .carousel-caption h3 {
+        font-size: 1rem;
+    }
+    .carousel-caption p {
+        font-size: 0.8rem;
+    }
+    .carousel-caption .offer-price {
+        font-size: 0.8rem;
+        padding: 4px 12px;
+    }
+
+    /* تحسين عرض الفلاتر */
+    .filter-badge {
+        font-size: 0.7rem;
+        padding: 4px 10px;
+    }
+    .price-input {
+        width: 70px;
+        font-size: 0.7rem;
+    }
+
+    /* تحسين عرض العروض والمثلجات */
+    .ice-cream-header h2 {
+        font-size: 1.2rem;
+    }
+    .ice-cream-img {
+        height: 130px;
+    }
+
+    /* تحسين الفوتر */
+    .footer .social-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    .footer-links a {
+        font-size: 0.7rem;
+    }
+}
+
+/* للشاشات الصغيرة جداً (جوال صغير) */
+@media (max-width: 480px) {
+    .product-img {
+        height: 120px;
+    }
+    .product-title {
+        font-size: 0.8rem;
+    }
+    .product-price {
+        font-size: 0.9rem;
+    }
+    .btn-add-cart {
+        font-size: 0.65rem;
+        padding: 3px 8px;
+    }
+    .header-logo {
+        max-width: 160px !important;
+    }
+    .welcome-text .animated-text {
+        font-size: 0.75rem;
+        padding: 4px 10px;
+    }
+}
