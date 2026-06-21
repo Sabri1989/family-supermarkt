@@ -193,11 +193,11 @@ async function displayProducts() {
     });
 
     if (filtered.length === 0) {
-        container.innerHTML = '<div class="col-12 text-center py-5"><i class="fas fa-box-open fa-3x text-muted"></i><p>لا توجد منتجات</p></div>';
+        container.innerHTML = '<div class="text-center py-5" style="width:100%;"><i class="fas fa-box-open fa-3x text-muted"></i><p>لا توجد منتجات</p></div>';
     } else {
         container.innerHTML = filtered.map(p => `
-            <div class="col-lg-3 col-md-6 product-card">
-                <div class="product-card-inner">
+            <div class="product-slide">
+                <div class="product-card">
                     <img src="${p.image}" class="product-img" alt="${p.name}" loading="lazy" onerror="this.src='https://placehold.co/400x300/f5a623/white?text=Image+Not+Found'">
                     <div class="card-body">
                         <span class="product-category">${getCategoryIcon(p.category)}</span>
@@ -220,23 +220,9 @@ async function displayProducts() {
         btn._listener = listener;
     });
 
-    // ربط حدث النقر على البطاقات لفتح المودال
-    document.querySelectorAll('.product-card').forEach(card => {
-        card.style.cursor = 'pointer';
-        card.removeEventListener('click', card._modalHandler);
-        const handler = (e) => {
-            if (e.target.classList.contains('btn-add-cart')) return;
-            const btn = card.querySelector('.btn-add-cart');
-            if (btn) {
-                const productId = btn.getAttribute('data-id');
-                if (productId) openProductModal(parseInt(productId));
-            }
-        };
-        card.addEventListener('click', handler);
-        card._modalHandler = handler;
-    });
-
-    renderPagination(data.total_pages, data.page);
+    // إخفاء الترقيم في العرض الأفقي
+    const paginationDiv = document.getElementById('pagination-container');
+    if (paginationDiv) paginationDiv.style.display = 'none';
 }
 
 // ========== عرض المثلجات ==========
@@ -251,63 +237,39 @@ async function displayIceCream() {
         const iceCreams = allProducts.filter(p => p.category === 'icecream');
 
         if (iceCreams.length === 0) {
-            container.innerHTML = '<div class="col-12 text-center"><p>لا توجد مثلجات حالياً</p></div>';
+            container.innerHTML = '<div class="text-center py-3" style="width:100%;"><p>لا توجد مثلجات حالياً</p></div>';
             return;
         }
 
         container.innerHTML = iceCreams.map(p => `
-            <div class="col-lg-3 col-md-6 product-card ice-cream-card" data-product-id="${p.id}">
-                <div class="ice-cream-img-wrapper">
-                    <img src="${p.image}" class="product-img" alt="${p.name}" loading="lazy" onerror="this.src='https://placehold.co/400x300/e84393/white?text=Ice+Cream'">
-                    <div class="ice-cream-overlay"><span>🔥 خصم خاص</span></div>
-                </div>
-                <div class="card-body text-center">
-                    <h5 class="product-title">${p.name}</h5>
-                    <p class="small text-muted">طعم رائع ومنعش</p>
-                    <div class="product-price">${p.price} يورو</div>
-                    <button class="btn-add-cart" data-id="${p.id}"><i class="fas fa-cart-plus"></i> أضف</button>
+            <div class="ice-slide">
+                <div class="product-card ice-cream-card">
+                    <div class="ice-cream-img-wrapper">
+                        <img src="${p.image}" class="product-img" alt="${p.name}" loading="lazy" onerror="this.src='https://placehold.co/400x300/e84393/white?text=Ice+Cream'">
+                        <div class="ice-cream-overlay"><span>🔥 خصم خاص</span></div>
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="product-title">${p.name}</h5>
+                        <p class="small text-muted">طعم رائع ومنعش</p>
+                        <div class="product-price">${p.price} يورو</div>
+                        <button class="btn-add-cart" data-id="${p.id}"><i class="fas fa-cart-plus"></i> أضف</button>
+                    </div>
                 </div>
             </div>
         `).join('');
 
-        // ربط أزرار الإضافة فقط (بدون تكرار)
+        // ربط أزرار الإضافة
         document.querySelectorAll('#iceCreamContainer .btn-add-cart').forEach(btn => {
-            btn.removeEventListener('click', btn._cartListener);
-            const cartListener = (e) => {
-                e.stopPropagation();
-                addToCart(parseInt(btn.dataset.id));
-            };
-            btn.addEventListener('click', cartListener);
-            btn._cartListener = cartListener;
-        });
-
-        // ربط حدث النقر على البطاقات لفتح المودال (مرة واحدة فقط لكل بطاقة)
-        document.querySelectorAll('#iceCreamContainer .product-card').forEach(card => {
-            // إزالة أي مستمع سابق
-            if (card._modalListener) {
-                card.removeEventListener('click', card._modalListener);
-            }
-            const modalListener = (e) => {
-                // منع فتح المودال إذا كان النقر على زر الإضافة أو على أي عنصر داخل الزر
-                if (e.target.closest('.btn-add-cart')) return;
-                const productId = card.getAttribute('data-product-id');
-                if (productId) {
-                    // منع تكرار فتح المودال أثناء فتحه بالفعل
-                    const modalElement = document.getElementById('productModal');
-                    if (modalElement && modalElement.classList.contains('show')) return;
-                    openProductModal(parseInt(productId));
-                }
-            };
-            card.addEventListener('click', modalListener);
-            card._modalListener = modalListener;
-            card.style.cursor = 'pointer';
+            btn.removeEventListener('click', btn._listener);
+            const listener = () => addToCart(parseInt(btn.dataset.id));
+            btn.addEventListener('click', listener);
+            btn._listener = listener;
         });
     } catch (error) {
         console.error('خطأ في تحميل المثلجات:', error);
-        container.innerHTML = '<div class="col-12 text-center text-danger"><p>حدث خطأ في تحميل المثلجات</p></div>';
+        container.innerHTML = '<div class="text-center text-danger py-3" style="width:100%;"><p>حدث خطأ في تحميل المثلجات</p></div>';
     }
 }
-
 // ========== إضافة إلى السلة ==========
 async function addToCart(id) {
     console.log("🛒 تم الضغط على إضافة للمنتج رقم:", id);
@@ -421,6 +383,7 @@ function switchPage(pageId) {
 async function displayOffers() {
     const container = document.getElementById('offersContainer');
     if (!container) return;
+    
     const response = await fetch('/api/offers');
     const offersData = await response.json();
 
@@ -428,41 +391,37 @@ async function displayOffers() {
         return price - (price * discount / 100);
     }
 
-    container.innerHTML = offersData.map(offer => {
-        const newPrice = getOfferPrice(offer.price, offer.discount);
-        return `
-            <div class="col-lg-3 col-md-6">
-                <div class="product-card" style="position: relative; border: 2px solid #d32f2f;">
-                    <div class="offer-badge"><i class="fas fa-tag"></i> خصم ${offer.discount}%</div>
-                    <img src="${offer.image}" class="product-img" alt="${offer.name}" loading="lazy" onerror="this.src='https://placehold.co/400x300/d32f2f/white?text=Offer'">
-                    <div class="card-body">
-                        <h5 class="product-title">${offer.name}</h5>
-                        <div class="product-price">
-                            <span class="original-price">${offer.price} يورو</span>
-                            <span class="discount-price">${newPrice.toFixed(2)} يورو</span>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mt-3">
-                            <button class="btn-add-offer" data-offer-id="${offer.id}"><i class="fas fa-cart-plus"></i> أضف</button>
-                            <button class="whatsapp-share" data-offer-id="${offer.id}"><i class="fab fa-whatsapp"></i> مشاركة</button>
+    if (offersData.length === 0) {
+        container.innerHTML = '<div class="text-center py-3" style="width:100%;"><p>لا توجد عروض حالياً</p></div>';
+    } else {
+        container.innerHTML = offersData.map(offer => {
+            const newPrice = getOfferPrice(offer.price, offer.discount);
+            return `
+                <div class="offer-slide">
+                    <div class="product-card" style="position: relative; border: 2px solid #d32f2f;">
+                        <div class="offer-badge"><i class="fas fa-tag"></i> خصم ${offer.discount}%</div>
+                        <img src="${offer.image}" class="product-img" alt="${offer.name}" loading="lazy" onerror="this.src='https://placehold.co/400x300/d32f2f/white?text=Offer'">
+                        <div class="card-body">
+                            <h5 class="product-title">${offer.name}</h5>
+                            <div class="product-price">
+                                <span class="original-price">${offer.price} يورو</span>
+                                <span class="discount-price">${newPrice.toFixed(2)} يورو</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mt-2">
+                                <button class="btn-add-offer" data-offer-id="${offer.id}"><i class="fas fa-cart-plus"></i> أضف</button>
+                                <button class="whatsapp-share" data-offer-id="${offer.id}"><i class="fab fa-whatsapp"></i> مشاركة</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        `;
-    }).join('');
+            `;
+        }).join('');
+    }
 
-    document.querySelectorAll('.whatsapp-share').forEach(btn => {
-        btn.removeEventListener('click', window._whatsappHandler);
-        const handler = () => {
-            const offerId = parseInt(btn.dataset.offerId);
-            shareOffer(offerId);
-        };
-        btn.addEventListener('click', handler);
-        btn._whatsappHandler = handler;
-    });
-
+    // ربط أزرار الإضافة
     document.querySelectorAll('.btn-add-offer').forEach(btn => {
-        btn.addEventListener('click', async () => {
+        btn.removeEventListener('click', btn._offerListener);
+        const listener = async () => {
             const id = parseInt(btn.dataset.offerId);
             const res = await fetch('/api/offers');
             const offers = await res.json();
@@ -475,7 +434,20 @@ async function displayOffers() {
                 saveCart();
                 showToast();
             }
-        });
+        };
+        btn.addEventListener('click', listener);
+        btn._offerListener = listener;
+    });
+
+    // ربط أزرار المشاركة
+    document.querySelectorAll('.whatsapp-share').forEach(btn => {
+        btn.removeEventListener('click', btn._shareListener);
+        const handler = () => {
+            const offerId = parseInt(btn.dataset.offerId);
+            shareOffer(offerId);
+        };
+        btn.addEventListener('click', handler);
+        btn._shareListener = handler;
     });
 }
 

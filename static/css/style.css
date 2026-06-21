@@ -1917,3 +1917,194 @@ html {
         transform: scale(1);
     }
 }
+/* ===== شريط أفقي للمنتجات ===== */
+.products-section {
+    padding: 0 0 30px;
+}
+.products-container-wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px 0 20px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+    width: 100%;
+}
+.products-container-wrapper::-webkit-scrollbar {
+    height: 6px;
+}
+.products-container-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+.products-container-wrapper::-webkit-scrollbar-thumb {
+    background: #f5a623;
+    border-radius: 10px;
+}
+.products-container-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #e69500;
+}
+
+#productsContainer {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 10px;
+    width: max-content;
+    min-width: 100%;
+}
+
+.product-slide {
+    flex: 0 0 220px;
+    width: 220px;
+    margin: 0;
+}
+.product-slide .product-card {
+    height: 100%;
+    min-height: 320px;
+    margin: 0;
+}
+.product-slide .product-img {
+    height: 160px;
+    object-fit: contain;
+    background: #fafbfc;
+    padding: 8px;
+}
+
+/* أزرار التنقل */
+.scroll-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 10px 0 5px;
+}
+.scroll-controls .btn {
+    border-radius: 30px;
+    padding: 6px 20px;
+    font-size: 0.8rem;
+    background: #f5a623;
+    color: #0d47a1;
+    border: none;
+    font-weight: bold;
+    transition: 0.2s;
+}
+.scroll-controls .btn:hover {
+    background: #e69500;
+}
+
+/* إخفاء الترقيم */
+#pagination-container {
+    display: none !important;
+}
+
+/* للجوال */
+@media (max-width: 768px) {
+    .product-slide {
+        flex: 0 0 170px;
+        width: 170px;
+    }
+    .product-slide .product-img {
+        height: 130px;
+    }
+    .product-slide .product-card {
+        min-height: 260px;
+    }
+    .product-title {
+        font-size: 0.75rem !important;
+    }
+    .product-price {
+        font-size: 0.85rem !important;
+    }
+    .btn-add-cart {
+        font-size: 0.6rem !important;
+        padding: 3px 8px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-slide {
+        flex: 0 0 150px;
+        width: 150px;
+    }
+    .product-slide .product-img {
+        height: 110px;
+    }
+    .product-slide .product-card {
+        min-height: 230px;
+    }
+}
+/* ===== إصلاح العروض والمثلجات ===== */
+.offer-slide, .ice-slide {
+    flex: 0 0 220px;
+    width: 220px;
+}
+.offer-slide .product-card {
+    min-height: 300px;
+    border: 2px solid #d32f2f !important;
+}
+.ice-slide .product-card {
+    min-height: 300px;
+}
+.ice-slide .ice-cream-card {
+    border: 1px solid rgba(232,67,147,0.2);
+}
+.ice-slide .ice-cream-img-wrapper {
+    height: 160px;
+    overflow: hidden;
+}
+.ice-slide .ice-cream-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #fafbfc;
+    padding: 8px;
+}
+
+/* تحسين أزرار التنقل للأقسام */
+.scroll-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 10px 0;
+}
+.scroll-controls .btn {
+    border-radius: 30px;
+    padding: 6px 20px;
+    font-size: 0.8rem;
+    background: #f5a623;
+    color: #0d47a1;
+    border: none;
+    font-weight: bold;
+    transition: 0.2s;
+}
+.scroll-controls .btn:hover {
+    background: #e69500;
+}
+
+/* ===== تحسين الجوال ===== */
+@media (max-width: 768px) {
+    .offer-slide, .ice-slide {
+        flex: 0 0 170px;
+        width: 170px;
+    }
+    .offer-slide .product-card,
+    .ice-slide .product-card {
+        min-height: 250px;
+    }
+    .ice-slide .ice-cream-img-wrapper {
+        height: 130px;
+    }
+}
+
+@media (max-width: 480px) {
+    .offer-slide, .ice-slide {
+        flex: 0 0 150px;
+        width: 150px;
+    }
+    .offer-slide .product-card,
+    .ice-slide .product-card {
+        min-height: 220px;
+    }
+    .ice-slide .ice-cream-img-wrapper {
+        height: 110px;
+    }
+}

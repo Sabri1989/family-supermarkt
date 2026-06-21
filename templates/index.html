@@ -192,13 +192,28 @@
                     <button class="reset-btn" id="resetFiltersBtn"><i class="fas fa-undo-alt"></i> إعادة تعيين</button>
                 </div>
             </div>
-            <div class="products-section">
-                <div class="section-title">
-                    <h2>🛒 منتجاتنا الطازجة</h2>
-                </div>
-                <div class="row g-4" id="productsContainer"></div>
-                <div id="pagination-container" class="mt-4"></div>
-            </div>
+           <div class="products-section">
+    <div class="section-title">
+        <h2>🛒 منتجاتنا الطازجة</h2>
+    </div>
+    
+    <!-- أزرار التنقل -->
+    <div class="scroll-controls">
+        <button class="btn" onclick="document.querySelector('.products-container-wrapper').scrollBy({ left: -300, behavior: 'smooth' });">
+            <i class="fas fa-chevron-right"></i> السابق
+        </button>
+        <button class="btn" onclick="document.querySelector('.products-container-wrapper').scrollBy({ left: 300, behavior: 'smooth' });">
+            التالي <i class="fas fa-chevron-left"></i>
+        </button>
+    </div>
+
+    <!-- حاوية الشريط الأفقي -->
+    <div class="products-container-wrapper">
+        <div id="productsContainer" style="display: flex; flex-wrap: nowrap; gap: 10px;"></div>
+    </div>
+
+    <div id="pagination-container" class="mt-4"></div>
+</div>
         </div>
     </div>
 
@@ -263,27 +278,56 @@
     </div>
 
     <!-- ===== قسم العروض الخاصة ===== -->
-    <div class="offers-section">
-        <div class="container">
-            <div class="offers-header">
-                <h2><i class="fas fa-fire"></i> عروض خاصة 🔥</h2>
-                <p>خصومات تصل إلى 50% لفترة محدودة</p>
-            </div>
-            <div class="row g-4" id="offersContainer"></div>
+    <!-- ===== قسم العروض الخاصة ===== -->
+<div class="offers-section">
+    <div class="container">
+        <div class="offers-header">
+            <h2><i class="fas fa-fire"></i> عروض خاصة 🔥</h2>
+            <p>خصومات تصل إلى 50% لفترة محدودة</p>
+        </div>
+        
+        <!-- أزرار التنقل -->
+        <div class="scroll-controls">
+            <button class="btn" onclick="document.getElementById('offersWrapper').scrollBy({ left: -300, behavior: 'smooth' });">
+                <i class="fas fa-chevron-right"></i> السابق
+            </button>
+            <button class="btn" onclick="document.getElementById('offersWrapper').scrollBy({ left: 300, behavior: 'smooth' });">
+                التالي <i class="fas fa-chevron-left"></i>
+            </button>
+        </div>
+
+        <!-- حاوية الشريط الأفقي -->
+        <div class="products-container-wrapper" id="offersWrapper">
+            <div id="offersContainer" style="display: flex; flex-wrap: nowrap; gap: 10px;"></div>
         </div>
     </div>
+</div>
 
     <!-- ===== قسم المثلجات ===== -->
-    <div class="ice-cream-section">
-        <div class="container">
-            <div class="ice-cream-header">
-                <h2><i class="fas fa-ice-cream"></i> مثلجات منعشة لفصل الصيف <i class="fas fa-ice-cream"></i></h2>
-                <p>ألذ أنواع المثلجات بأسعار خاصة</p>
-            </div>
-            <div class="row g-4" id="iceCreamContainer"></div>
+   <!-- ===== قسم المثلجات ===== -->
+<div class="ice-cream-section">
+    <div class="container">
+        <div class="ice-cream-header">
+            <h2><i class="fas fa-ice-cream"></i> مثلجات منعشة لفصل الصيف <i class="fas fa-ice-cream"></i></h2>
+            <p>ألذ أنواع المثلجات بأسعار خاصة</p>
+        </div>
+        
+        <!-- أزرار التنقل -->
+        <div class="scroll-controls">
+            <button class="btn" onclick="document.getElementById('iceCreamWrapper').scrollBy({ left: -300, behavior: 'smooth' });">
+                <i class="fas fa-chevron-right"></i> السابق
+            </button>
+            <button class="btn" onclick="document.getElementById('iceCreamWrapper').scrollBy({ left: 300, behavior: 'smooth' });">
+                التالي <i class="fas fa-chevron-left"></i>
+            </button>
+        </div>
+
+        <!-- حاوية الشريط الأفقي -->
+        <div class="products-container-wrapper" id="iceCreamWrapper">
+            <div id="iceCreamContainer" style="display: flex; flex-wrap: nowrap; gap: 10px;"></div>
         </div>
     </div>
-
+</div>
     <!-- ===== خدمة التوصيل السريع ===== -->
     <div class="delivery-service-section">
         <div class="container">
