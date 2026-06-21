@@ -539,6 +539,11 @@ document.addEventListener('DOMContentLoaded', function() {
             currentSearch = searchInput.value;
             switchPage('products');
             applyFilters();
+             const navbarCollapse = document.getElementById('mainNav');
+        if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+            const toggler = document.querySelector('.navbar-toggler');
+            if (toggler) toggler.click();
+        }
         });
     }
     if (searchInput) {
