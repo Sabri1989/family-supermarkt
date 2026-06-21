@@ -539,22 +539,46 @@ document.addEventListener('DOMContentLoaded', function() {
             currentSearch = searchInput.value;
             switchPage('products');
             applyFilters();
+
              const navbarCollapse = document.getElementById('mainNav');
         if (navbarCollapse && navbarCollapse.classList.contains('show')) {
             const toggler = document.querySelector('.navbar-toggler');
             if (toggler) toggler.click();
         }
+        
         });
     }
+
+
+
+
     if (searchInput) {
         searchInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 currentSearch = searchInput.value;
                 switchPage('products');
                 applyFilters();
+                 // إغلاق القائمة المنسدلة (للموبايل)
+                const navbarCollapse = document.getElementById('mainNav');
+                if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                    const toggler = document.querySelector('.navbar-toggler');
+                    if (toggler) toggler.click();
+                }
             }
         });
     }
+
+     // === إغلاق القائمة بعد النقر على أي رابط في القائمة ===
+    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            const navbarCollapse = document.getElementById('mainNav');
+            if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                const toggler = document.querySelector('.navbar-toggler');
+                if (toggler) toggler.click();
+            }
+        });
+    });
+    
 
     // الكاروسيل الرئيسي
     const mainCarousel = document.getElementById('mainCarousel');

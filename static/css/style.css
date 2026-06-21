@@ -2323,3 +2323,136 @@ body.admin-page .bottom-nav {
 .shop-now-btn {
     display: none !important;
 }
+
+/* ===== تصميم القائمة المنسدلة للجوال - زجاجي أنيق ===== */
+@media (max-width: 768px) {
+    .navbar-collapse {
+        background: rgba(13, 71, 161, 0.92) !important;
+        backdrop-filter: blur(16px) !important;
+        -webkit-backdrop-filter: blur(16px) !important;
+        padding: 20px 20px 25px !important;
+        border-radius: 0 0 24px 24px !important;
+        max-height: 75vh !important;
+        overflow-y: auto !important;
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 1050 !important;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1) !important;
+        border-bottom: 2px solid rgba(245, 166, 35, 0.3) !important;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 12px 18px !important;
+        border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+        font-size: 0.95rem !important;
+        color: rgba(255,255,255,0.9) !important;
+        border-radius: 12px !important;
+        transition: all 0.2s ease !important;
+        margin: 2px 0 !important;
+    }
+
+    .navbar-nav .nav-link:hover {
+        background: rgba(245, 166, 35, 0.15) !important;
+        color: #f5a623 !important;
+        transform: translateX(-5px) !important;
+    }
+
+    .navbar-nav .nav-link[href*="catalog"] {
+        background: rgba(245, 166, 35, 0.12) !important;
+        border: 1px solid rgba(245, 166, 35, 0.2) !important;
+        border-radius: 30px !important;
+        text-align: center !important;
+        margin-top: 6px !important;
+    }
+
+    .navbar-collapse .d-flex {
+        flex-direction: column !important;
+        gap: 10px !important;
+        margin-top: 15px !important;
+        padding-top: 15px !important;
+        border-top: 1px solid rgba(255,255,255,0.08) !important;
+    }
+
+    .navbar-collapse .search-wrapper-top {
+        display: flex !important;
+        width: 100% !important;
+        background: rgba(255,255,255,0.08) !important;
+        border-radius: 30px !important;
+        padding: 4px 8px 4px 16px !important;
+        border: 1px solid rgba(255,255,255,0.05) !important;
+    }
+
+    .navbar-collapse .search-wrapper-top input {
+        width: 100% !important;
+        color: #fff !important;
+        font-size: 0.9rem !important;
+    }
+
+    .navbar-collapse .search-wrapper-top input::placeholder {
+        color: rgba(255,255,255,0.5) !important;
+    }
+
+    .navbar-collapse .search-wrapper-top button {
+        background: #f5a623 !important;
+        border: none !important;
+        padding: 6px 16px !important;
+        border-radius: 30px !important;
+        color: #0d47a1 !important;
+        font-weight: bold !important;
+    }
+
+    .navbar-collapse .cart-btn {
+        width: 100% !important;
+        justify-content: center !important;
+        background: rgba(245, 166, 35, 0.15) !important;
+        color: #f5a623 !important;
+        border: 1px solid rgba(245, 166, 35, 0.2) !important;
+    }
+
+    .navbar-collapse .cart-btn .cart-badge {
+        background: #f5a623 !important;
+        color: #0d47a1 !important;
+    }
+
+    .nav-dropdown .dropdown-btn {
+        background: rgba(255,255,255,0.06) !important;
+        border: 1px solid rgba(255,255,255,0.08) !important;
+        border-radius: 30px !important;
+        padding: 10px 16px !important;
+        justify-content: center !important;
+        color: rgba(255,255,255,0.85) !important;
+        font-size: 0.9rem !important;
+    }
+
+    .nav-dropdown .dropdown-menu-custom {
+        background: rgba(255,255,255,0.05) !important;
+        backdrop-filter: blur(8px) !important;
+        border-radius: 16px !important;
+        padding: 8px 0 !important;
+        margin-top: 6px !important;
+        border: 1px solid rgba(255,255,255,0.06) !important;
+        display: none !important;
+    }
+
+    .nav-dropdown.show .dropdown-menu-custom {
+        display: block !important;
+    }
+
+    .nav-dropdown .dropdown-menu-custom a {
+        color: rgba(255,255,255,0.8) !important;
+        padding: 10px 18px !important;
+        font-size: 0.85rem !important;
+        border-radius: 8px !important;
+    }
+
+    .nav-dropdown .dropdown-menu-custom a:hover {
+        background: rgba(245, 166, 35, 0.12) !important;
+        color: #f5a623 !important;
+    }
+
+    .nav-dropdown .dropdown-menu-custom hr {
+        border-color: rgba(255,255,255,0.05) !important;
+    }
+}
