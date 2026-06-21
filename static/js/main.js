@@ -675,6 +675,20 @@ document.addEventListener('DOMContentLoaded', function() {
         setupImageZoom();
 });
 
+ document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            const navbarCollapse = document.getElementById('mainNav');
+            if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                const toggler = document.querySelector('.navbar-toggler');
+                if (toggler) toggler.click();
+            }
+        });
+    });
+
+
+
+
+
 // تأثير الـ Toast
 const style = document.createElement('style');
 style.textContent = `@keyframes fadeOut{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(20px)}}`;
