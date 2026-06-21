@@ -2457,11 +2457,64 @@ body.admin-page .bottom-nav {
     }
 }
 
+/* ===== إزالة الإطار الأسود وجعل القائمة زجاجية ===== */
 @media (max-width: 768px) {
     .navbar-collapse {
         background: rgba(13, 71, 161, 0.9) !important;
+        background-color: rgba(13, 71, 161, 0.9) !important;
         backdrop-filter: blur(16px) !important;
         -webkit-backdrop-filter: blur(16px) !important;
-        background-color: rgba(13, 71, 161, 0.9) !important; /* تأكيد */
+        padding: 20px !important;
+        border-radius: 0 0 24px 24px !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+        border: none !important;
+        /* إزالة أي خلفية سوداء */
+        background-image: none !important;
+    }
+
+    /* تحسين الروابط */
+    .navbar-nav .nav-link {
+        color: rgba(255,255,255,0.95) !important;
+        padding: 12px 18px !important;
+        border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+        border-radius: 12px !important;
+    }
+
+    .navbar-nav .nav-link:hover {
+        background: rgba(245, 166, 35, 0.12) !important;
+        color: #f5a623 !important;
+    }
+
+    /* تحسين أزرار البحث والسلة */
+    .navbar-collapse .search-wrapper-top {
+        background: rgba(255,255,255,0.08) !important;
+        border: none !important;
+    }
+
+    .navbar-collapse .cart-btn {
+        background: rgba(245, 166, 35, 0.12) !important;
+        border: none !important;
+        color: #f5a623 !important;
+    }
+
+    /* تحسين القائمة المنسدلة للتصنيفات */
+    .nav-dropdown .dropdown-btn {
+        background: rgba(255,255,255,0.06) !important;
+        border: none !important;
+    }
+
+    .nav-dropdown .dropdown-menu-custom {
+        background: rgba(255,255,255,0.05) !important;
+        backdrop-filter: blur(8px) !important;
+        border: none !important;
+    }
+
+    .nav-dropdown .dropdown-menu-custom a {
+        color: rgba(255,255,255,0.85) !important;
+    }
+
+    .nav-dropdown .dropdown-menu-custom a:hover {
+        background: rgba(245, 166, 35, 0.12) !important;
+        color: #f5a623 !important;
     }
 }
