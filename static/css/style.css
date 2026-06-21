@@ -2206,3 +2206,120 @@ html {
         font-size: 0.85rem;
     }
 }
+
+/* ===== شريط سفلي أنيق (Bottom Navigation Bar) ===== */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 6px 0 10px;
+    z-index: 999;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(100%);
+}
+.bottom-nav.show {
+    transform: translateY(0);
+}
+
+.bottom-nav .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #6b7280;
+    font-size: 0.6rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    padding: 4px 12px;
+    border-radius: 30px;
+    position: relative;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+.bottom-nav .nav-item i {
+    font-size: 1.3rem;
+    margin-bottom: 2px;
+    transition: all 0.3s ease;
+}
+.bottom-nav .nav-item span {
+    font-size: 0.5rem;
+    letter-spacing: 0.3px;
+}
+.bottom-nav .nav-item:hover {
+    color: #0d47a1;
+}
+.bottom-nav .nav-item.active {
+    color: #f5a623;
+}
+.bottom-nav .nav-item.active i {
+    transform: translateY(-4px) scale(1.1);
+}
+
+/* زر تسوق الآن المميز */
+.bottom-nav .nav-item.cta {
+    background: linear-gradient(135deg, #f5a623, #e69500);
+    color: #fff !important;
+    padding: 6px 18px;
+    border-radius: 30px;
+    box-shadow: 0 4px 16px rgba(245, 166, 35, 0.35);
+    animation: pulse-cta 2s infinite;
+    min-width: 70px;
+}
+.bottom-nav .nav-item.cta i {
+    font-size: 1.2rem;
+}
+.bottom-nav .nav-item.cta span {
+    font-size: 0.65rem;
+    font-weight: 700;
+}
+.bottom-nav .nav-item.cta:hover {
+    transform: scale(1.05);
+}
+@keyframes pulse-cta {
+    0%, 100% { box-shadow: 0 4px 16px rgba(245, 166, 35, 0.35); }
+    50% { box-shadow: 0 4px 30px rgba(245, 166, 35, 0.6); }
+}
+
+/* إخفاء الشريط عند عرض لوحة التحكم أو صفحات معينة */
+body.admin-page .bottom-nav {
+    display: none;
+}
+
+/* للجوال */
+@media (max-width: 768px) {
+    .bottom-nav {
+        padding: 4px 0 8px;
+    }
+    .bottom-nav .nav-item {
+        font-size: 0.5rem;
+        padding: 2px 8px;
+    }
+    .bottom-nav .nav-item i {
+        font-size: 1.1rem;
+    }
+    .bottom-nav .nav-item.cta {
+        padding: 4px 14px;
+        min-width: 60px;
+    }
+    .bottom-nav .nav-item.cta i {
+        font-size: 1rem;
+    }
+    .bottom-nav .nav-item.cta span {
+        font-size: 0.55rem;
+    }
+}
+
+/* إزالة الشريط الأسود القديم إذا كان موجوداً */
+.shop-now-btn {
+    display: none !important;
+}

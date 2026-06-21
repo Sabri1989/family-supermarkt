@@ -321,6 +321,26 @@ function updateCartUI() {
     if (cartCount) cartCount.innerText = total;
 }
 
+// تحديث عدد السلة في الشريط السفلي
+function updateBottomCart() {
+    const bottomBadge = document.getElementById('bottomCartCount');
+    const total = cart.reduce((sum, i) => sum + (i.quantity || 0), 0);
+    if (bottomBadge) {
+        if (total > 0) {
+            bottomBadge.style.display = 'block';
+            bottomBadge.innerText = total;
+        } else {
+            bottomBadge.style.display = 'none';
+        }
+    }
+}
+// استدعاء الدالة مع updateCartUI
+const originalUpdateCartUI = updateCartUI;
+updateCartUI = function() {
+    originalUpdateCartUI();
+    updateBottomCart();
+};
+
 function renderCartModal() {
     const container = document.getElementById('cartItemsList');
     const totalElement = document.getElementById('cartTotalPrice');
@@ -686,7 +706,29 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
-
+// إظهار/إخفاء الشريط السفلي عند التمرير
+let lastScrollY = 0;
+window.addEventListener('scroll', () => {
+    const bottomNav = document.getElementById('bottomNav');
+    if (!bottomNav) return;
+    const currentScrollY = window.scrollY;
+    if (currentScrollY > 80) {
+        if (currentScrollY > lastScrollY) {
+            bottomNav.classList.remove('show');
+        } else {
+            bottomNav.classList.add('show');
+        }
+    } else {
+        bottomNav.classList.add('show');
+    }
+    lastScrollY = currentScrollY;
+});
+// إظهاره عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        document.getElementById('bottomNav')?.classList.add('show');
+    }, 500);
+});
 
 
 // تأثير الـ Toast
