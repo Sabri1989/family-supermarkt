@@ -2108,3 +2108,101 @@ html {
         height: 110px;
     }
 }
+/* ===== إصلاح القائمة المنسدلة للجوال ===== */
+
+/* جعل القائمة تظهر بشكل طبيعي (وليست كاملة الشاشة) */
+@media (max-width: 768px) {
+    .navbar-collapse {
+        background: #0d47a1;
+        padding: 10px 15px;
+        border-radius: 0 0 16px 16px;
+        max-height: 70vh;  /* ارتفاع أقصى 70% من الشاشة */
+        overflow-y: auto;  /* تمرير داخلي إذا زاد المحتوى */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 1050;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    /* تأكد من أن القائمة تظهر فوق المحتوى ولا تزاحمه */
+    .navbar-collapse.collapsing,
+    .navbar-collapse.show {
+        display: block !important;
+    }
+
+    /* تحسين مظهر الروابط في القائمة */
+    .navbar-nav .nav-link {
+        padding: 10px 15px !important;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        font-size: 0.9rem;
+    }
+
+    .navbar-nav .nav-link:last-child {
+        border-bottom: none;
+    }
+
+    /* إصلاح أزرار البحث والسلة داخل القائمة المنسدلة */
+    .navbar-collapse .d-flex {
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .navbar-collapse .search-wrapper-top {
+        display: flex !important;
+        width: 100%;
+        background: rgba(255,255,255,0.1);
+        border-radius: 30px;
+        padding: 4px 8px 4px 12px;
+    }
+
+    .navbar-collapse .search-wrapper-top input {
+        width: 100%;
+        color: #fff;
+    }
+
+    .navbar-collapse .cart-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* إخفاء القائمة المنسدلة للتصنيفات (dropdown) عند عدم الضغط عليها */
+    .nav-dropdown .dropdown-menu-custom {
+        position: static !important;
+        background: rgba(255,255,255,0.05);
+        border-radius: 12px;
+        padding: 8px 0;
+        margin-top: 4px;
+        box-shadow: none;
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: none;
+    }
+
+    .nav-dropdown.show .dropdown-menu-custom {
+        display: block;
+    }
+
+    .nav-dropdown .dropdown-menu-custom a {
+        color: rgba(255,255,255,0.85) !important;
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+
+    .nav-dropdown .dropdown-menu-custom a:hover {
+        background: rgba(255,255,255,0.1);
+        color: #f5a623 !important;
+    }
+
+    .nav-dropdown .dropdown-btn {
+        background: rgba(255,255,255,0.1);
+        border: none;
+        border-radius: 30px;
+        padding: 6px 14px;
+        font-size: 0.85rem;
+    }
+}
