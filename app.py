@@ -334,3 +334,48 @@ def update_product(id):
     conn.commit()
     conn.close()
     return jsonify({'success': 'تم تحديث المنتج'})
+
+# ------------------- API إدارة العروض -------------------
+@app.route('/api/admin/offers', methods=['POST'])
+@login_required
+def add_offer():
+    data = request.json
+    name = data.get('name')
+    price = data.get('price')
+    discount = data.get('discount')
+    image = data.get('image')
+    
+    if not name or not price or not discount:
+        return jsonify({'error': 'الاسم والسعر والخصم مطلوبة'}), 400
+    
+    conn = get_db()
+    conn.execute('INSERT INTO offers (name, price, discount, image) VALUES (?, ?, ?, ?)',
+                 (name, price, discount, image))
+    conn.commit()
+    conn.close()
+    return jsonify({'success': 'تمت إضافة العرض'}), 201
+
+@app.route('/api/admin/offers/<int:id>', methods=['DELETE'])
+@login_required
+def delete_offer(id):
+    conn = get_db()
+    conn.execute('DELETE FROM offers WHERE id = ?', (id,))
+    conn.commit()
+    conn.close()
+    return jsonify({'success': 'تم حذف العرض'})
+
+@app.route('/api/admin/offers/<int:id>', methods=['PUT'])
+@login_required
+def update_offer(id):
+    data = request.json
+    name = data.get('name')
+    price = data.get('price')
+    discount = data.get('discount')
+    image = data.get('image')
+    
+    conn = get_db()
+    conn.execute('UPDATE offers SET name=?, price=?, discount=?, image=? WHERE id=?',
+                 (name, price, discount, image, id))
+    conn.commit()
+    conn.close()
+    return jsonify({'success': 'تم تحديث العرض'})
