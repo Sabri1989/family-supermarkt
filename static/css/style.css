@@ -2456,3 +2456,12 @@ body.admin-page .bottom-nav {
         border-color: rgba(255,255,255,0.05) !important;
     }
 }
+
+@media (max-width: 768px) {
+    .navbar-collapse {
+        background: rgba(13, 71, 161, 0.9) !important;
+        backdrop-filter: blur(16px) !important;
+        -webkit-backdrop-filter: blur(16px) !important;
+        background-color: rgba(13, 71, 161, 0.9) !important; /* تأكيد */
+    }
+}
