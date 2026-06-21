@@ -2518,3 +2518,39 @@ body.admin-page .bottom-nav {
         color: #f5a623 !important;
     }
 }
+
+/* ===== إزالة اللون الأسود من القائمة المنسدلة (للموبايل) ===== */
+@media (max-width: 768px) {
+    .navbar-collapse {
+        background: rgba(13, 71, 161, 0.9) !important;  /* لون أزرق شفاف بدل الأسود */
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+        border-bottom: 2px solid rgba(245, 166, 35, 0.2) !important;
+        border-radius: 0 0 20px 20px !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+    }
+
+    /* تحسين مظهر الروابط (اختياري) */
+    .navbar-nav .nav-link {
+        color: rgba(255,255,255,0.95) !important;
+        border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+        padding: 10px 16px !important;
+    }
+
+    .navbar-nav .nav-link:hover {
+        background: rgba(245, 166, 35, 0.15) !important;
+        color: #f5a623 !important;
+    }
+
+    /* تحسين أزرار البحث والسلة (اختياري) */
+    .navbar-collapse .search-wrapper-top {
+        background: rgba(255,255,255,0.08) !important;
+        border: none !important;
+    }
+
+    .navbar-collapse .cart-btn {
+        background: rgba(245, 166, 35, 0.12) !important;
+        border: none !important;
+        color: #f5a623 !important;
+    }
+}
