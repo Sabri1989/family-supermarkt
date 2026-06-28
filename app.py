@@ -337,4 +337,11 @@ def update_product(id):
                  (name, category, price, image, id))
     conn.commit()
     conn.close()
+@app.route('/offers')
+def offers_page():
+    conn = get_db()
+    offers = conn.execute('SELECT * FROM offers ORDER BY id DESC').fetchall()
+    conn.close()
+    return render_template('offers.html', offers=offers)
+
     return jsonify({'success': 'تم تحديث المنتج'})
