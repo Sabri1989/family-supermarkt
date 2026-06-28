@@ -77,13 +77,17 @@ def load_user(user_id):
 # ------------------- مسارات الواجهة العامة -------------------
 @app.route('/')
 def index():
+    conn = get_db()
+    products = conn.execute('SELECT * FROM products ORDER BY id DESC').fetchall()
+    conn.close()
+    
     social_links = {
         'facebook': 'https://www.facebook.com/YOUR_PAGE',
         'instagram': 'https://www.instagram.com/YOUR_PAGE',
         'tiktok': 'https://www.tiktok.com/@YOUR_PAGE',
         'whatsapp': 'https://wa.me/YOUR_NUMBER'
     }
-    return render_template('index.html', social_links=social_links)
+    return render_template('index.html', products=products, social_links=social_links)
 # API: جلب جميع المنتجات
 
 
