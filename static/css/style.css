@@ -1917,3 +1917,29 @@ html {
         transform: scale(1);
     }
 }
+
+/* ===== إزالة الإطار الأسود من زر القائمة (للموبايل) ===== */
+.navbar-toggler {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler:visited {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* إزالة أي إطار من زر القائمة عند النقر */
+.navbar-toggler-icon {
+    border: none !important;
+    outline: none !important;
+}
+
+/* لمتصفحات WebKit (Chrome, Safari) */
+.navbar-toggler:focus-visible {
+    outline: none !important;
+}
