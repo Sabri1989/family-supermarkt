@@ -1917,3 +1917,136 @@ html {
         transform: scale(1);
     }
 }
+/* ===== تحسين بطاقات المنتجات ===== */
+
+/* 1. جعل البطاقات متساوية الارتفاع */
+.product-card {
+    display: flex;
+    flex-direction: column;
+    height: 100% !important;
+    transition: all 0.3s ease;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    border: 1px solid #f0f0f0;
+}
+
+/* 2. تأثير hover على البطاقة */
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(13, 71, 161, 0.12);
+    border-color: #f5a623;
+}
+
+/* 3. تنسيق الصورة (تظهر كاملة وجذابة) */
+.product-card .product-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: #f8fafc;
+    transition: transform 0.5s ease;
+    padding: 0;
+}
+
+/* 4. تكبير الصورة عند hover */
+.product-card:hover .product-img {
+    transform: scale(1.04);
+}
+
+/* 5. تنسيق محتوى البطاقة */
+.product-card .card-body {
+    padding: 16px 14px 18px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* 6. اسم المنتج */
+.product-card .product-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #1a2a4a;
+    margin-bottom: 6px;
+    min-height: 44px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.4;
+}
+
+/* 7. فئة المنتج (التصنيف) */
+.product-card .product-category {
+    font-size: 0.65rem;
+    color: #f5a623;
+    background: #fff8f0;
+    display: inline-block;
+    padding: 2px 14px;
+    border-radius: 30px;
+    font-weight: 600;
+    align-self: flex-start;
+    margin-bottom: 6px;
+}
+
+/* 8. السعر */
+.product-card .product-price {
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: #0d47a1;
+}
+
+/* 9. زر الإضافة */
+.product-card .btn-add-cart {
+    background: linear-gradient(135deg, #f5a623, #e69500);
+    border: none;
+    padding: 5px 16px;
+    border-radius: 30px;
+    color: #0d47a1;
+    font-weight: 700;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.product-card .btn-add-cart:hover {
+    background: linear-gradient(135deg, #e69500, #d48800);
+    transform: scale(0.95);
+}
+
+/* 10. تنسيق الشبكة في الصفحة الرئيسية */
+#homeProducts .row {
+    gap: 0;
+}
+
+#homeProducts .col {
+    padding: 10px;
+}
+
+/* 11. تنسيق خاص للجوال */
+@media (max-width: 576px) {
+    .product-card .product-img {
+        height: 150px;
+    }
+    .product-card .product-title {
+        font-size: 0.85rem;
+        min-height: 38px;
+    }
+    .product-card .product-price {
+        font-size: 1rem;
+    }
+    .product-card .btn-add-cart {
+        font-size: 0.7rem;
+        padding: 4px 12px;
+    }
+}
+
+/* 12. تنسيق للأجهزة اللوحية */
+@media (min-width: 577px) and (max-width: 992px) {
+    .product-card .product-img {
+        height: 170px;
+    }
+}
+
+
