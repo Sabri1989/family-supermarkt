@@ -1943,10 +1943,10 @@ html {
 .product-card .product-img {
     width: 100%;
     height: 200px;
-    object-fit: cover;
-    background: #f8fafc;
+    object-fit: contain;   /* عرض الصورة كاملة بدون قص */
+    background: #f8fafc;   /* خلفية موحدة */
+    padding: 8px;          /* مسافة حول الصورة */
     transition: transform 0.5s ease;
-    padding: 0;
 }
 
 /* 4. تكبير الصورة عند hover */
@@ -2047,6 +2047,25 @@ html {
     .product-card .product-img {
         height: 170px;
     }
+}
+.product-card .product-img-wrapper {
+    background: #f8fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    overflow: hidden;
+}
+
+.product-card .product-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-img-wrapper img {
+    transform: scale(1.05);
 }
 
 
