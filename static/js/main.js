@@ -701,6 +701,17 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCartUI();
      setupImageClick();
         setupImageZoom();
+
+        // إغلاق القائمة المنسدلة بعد النقر على رابط (للجوال)
+document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        const navbarCollapse = document.getElementById('mainNav');
+        if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+            const toggler = document.querySelector('.navbar-toggler');
+            if (toggler) toggler.click();
+        }
+    });
+});p
 });
 
 // تأثير الـ Toast
