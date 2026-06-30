@@ -2164,3 +2164,54 @@ html {
 .product-card:hover .product-img-wrapper img {
     transform: scale(1.05);
 }
+
+
+
+/* ===== عرض العروض والمثلجات بشكل أفقي ===== */
+
+/* 1. تنسيق الحاوية الرئيسية */
+.offers-section .row,
+.ice-cream-section .row {
+    display: flex;
+    flex-wrap: nowrap;          /* منع الالتفاف إلى السطر التالي */
+    overflow-x: auto;           /* شريط تمرير أفقي */
+    gap: 20px;                  /* مسافة بين البطاقات */
+    padding: 10px 5px 20px;
+    scroll-behavior: smooth;    /* تمرير سلس */
+}
+
+/* 2. تنسيق البطاقات داخل الشريط الأفقي */
+.offers-section .col-lg-3,
+.ice-cream-section .col-lg-3 {
+    flex: 0 0 280px;            /* عرض ثابت للبطاقة */
+    max-width: 280px;
+    min-width: 240px;
+}
+
+/* 3. إخفاء شريط التمرير العمودي وإظهار أفقي أنيق */
+.offers-section .row::-webkit-scrollbar,
+.ice-cream-section .row::-webkit-scrollbar {
+    height: 6px;
+}
+
+.offers-section .row::-webkit-scrollbar-track,
+.ice-cream-section .row::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.offers-section .row::-webkit-scrollbar-thumb,
+.ice-cream-section .row::-webkit-scrollbar-thumb {
+    background: #f5a623;
+    border-radius: 10px;
+}
+
+/* 4. تنسيق للشاشات الصغيرة */
+@media (max-width: 576px) {
+    .offers-section .col-lg-3,
+    .ice-cream-section .col-lg-3 {
+        flex: 0 0 200px;
+        max-width: 200px;
+        min-width: 160px;
+    }
+}
