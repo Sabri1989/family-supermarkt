@@ -2050,7 +2050,7 @@ html {
 .product-img {
     width: 100%;
     height: 200px;
-    object-fit: cover;          /* تجعل الصورة تغطي المساحة بدون تشويه */
+    object-fit: contain;          /* تجعل الصورة تغطي المساحة بدون تشويه */
     background: #f8fafc;        /* لون خلفية احتياطي */
     transition: transform 0.5s ease;
     display: block;
