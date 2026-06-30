@@ -2032,12 +2032,15 @@ html {
 @media (min-width: 1400px) {
     #productsContainer,
     #homeProducts .row {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start; /* محاذاة لليسار بدلاً من المنتصف */
+        gap: 20px;
     }
-    
-    #productsContainer .product-img,
-    #homeProducts .product-img {
-        height: 240px;
+
+    #productsContainer .product-card,
+    #homeProducts .product-card {
+        flex: 0 0 calc(25% - 20px); /* 4 بطاقات في الصف مع مراعاة المسافات */
+        max-width: calc(25% - 20px);
     }
 }
