@@ -1950,14 +1950,14 @@ html {
 /* 1. في صفحة المنتجات (productsPage) */
 #productsContainer {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
 }
 
 /* 2. في الصفحة الرئيسية (homeProducts) */
 #homeProducts .row {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
 }
 
@@ -1992,7 +1992,7 @@ html {
 /* 5. محتوى البطاقة */
 #productsContainer .card-body,
 #homeProducts .card-body {
-    padding: 12px;
+    padding: 14px;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -2005,7 +2005,7 @@ html {
     min-height: 44px;
 }
 
-/* 6. تنسيق للجهاز اللوحي (3 بطاقات) */
+/* 6. تنسيق للجهاز اللوحي (عرض أقل من 992px) */
 @media (max-width: 992px) {
     #productsContainer,
     #homeProducts .row {
@@ -2014,7 +2014,7 @@ html {
     }
 }
 
-/* 7. تنسيق للموبايل (بطاقتان) */
+/* 7. تنسيق للموبايل (عرض أقل من 576px) */
 @media (max-width: 576px) {
     #productsContainer,
     #homeProducts .row {
