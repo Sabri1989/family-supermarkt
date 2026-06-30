@@ -2044,3 +2044,105 @@ html {
         max-width: calc(25% - 20px);
     }
 }
+
+
+/* ===== 1. تحسين صورة المنتج ===== */
+.product-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;          /* تجعل الصورة تغطي المساحة بدون تشويه */
+    background: #f8fafc;        /* لون خلفية احتياطي */
+    transition: transform 0.5s ease;
+    display: block;
+}
+
+
+/* ===== 2. تأثير hover للبطاقة ===== */
+.product-card {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    background: #fff;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);    /* تتحرك للأعلى */
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);  /* ظل أقوى */
+}
+
+/* تأثير إضافي على الصورة عند hover (تكبير خفيف) */
+.product-card:hover .product-img {
+    transform: scale(1.04);
+}
+
+
+
+/* ===== 3. تحسين أزرار الإضافة ===== */
+.btn-add-cart {
+    background: linear-gradient(135deg, #f5a623, #e69500) !important;
+    border: none !important;
+    color: #0d47a1 !important;
+    font-weight: 700 !important;
+    padding: 6px 16px !important;
+    border-radius: 30px !important;
+    font-size: 0.8rem !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+.btn-add-cart:hover {
+    background: linear-gradient(135deg, #e69500, #d48800) !important;
+    transform: scale(0.95) !important;
+    box-shadow: 0 4px 15px rgba(245, 166, 35, 0.3) !important;
+}
+
+.btn-add-cart i {
+    font-size: 0.75rem !important;
+}
+
+
+
+/* ===== 4. تحسين التجاوب (جوال + تابلت) ===== */
+
+/* أجهزة لوحية (شاشات أقل من 992px) */
+@media (max-width: 992px) {
+    .product-img {
+        height: 170px !important;
+    }
+    .product-title {
+        font-size: 0.9rem !important;
+        min-height: 40px !important;
+    }
+    .product-price {
+        font-size: 1rem !important;
+    }
+    .btn-add-cart {
+        font-size: 0.75rem !important;
+        padding: 4px 14px !important;
+    }
+}
+
+/* جوال (شاشات أقل من 576px) */
+@media (max-width: 576px) {
+    .product-img {
+        height: 140px !important;
+    }
+    .product-title {
+        font-size: 0.8rem !important;
+        min-height: 36px !important;
+    }
+    .product-price {
+        font-size: 0.9rem !important;
+    }
+    .btn-add-cart {
+        font-size: 0.7rem !important;
+        padding: 3px 12px !important;
+    }
+    .btn-add-cart i {
+        font-size: 0.65rem !important;
+    }
+}
