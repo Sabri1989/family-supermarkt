@@ -1947,21 +1947,15 @@ html {
 
 /* ===== تنسيق شبكة المنتجات ===== */
 
-/* 1. في صفحة المنتجات (productsPage) */
-#productsContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-/* 2. في الصفحة الرئيسية (homeProducts) */
+/* 1. شبكة متجاوبة مع عدد أعمدة ثابت */
+#productsContainer,
 #homeProducts .row {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
 }
 
-/* 3. تنسيق البطاقات لتكون متساوية الارتفاع */
+/* 2. تنسيق البطاقات */
 #productsContainer .product-card,
 #homeProducts .product-card {
     height: 100%;
@@ -1980,7 +1974,7 @@ html {
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
-/* 4. تنسيق الصورة */
+/* 3. الصورة */
 #productsContainer .product-img,
 #homeProducts .product-img {
     width: 100%;
@@ -1989,7 +1983,7 @@ html {
     background: #f8fafc;
 }
 
-/* 5. محتوى البطاقة */
+/* 4. محتوى البطاقة */
 #productsContainer .card-body,
 #homeProducts .card-body {
     padding: 14px;
@@ -2005,7 +1999,7 @@ html {
     min-height: 44px;
 }
 
-/* 6. تنسيق للجهاز اللوحي (عرض أقل من 992px) */
+/* 5. شاشات متوسطة (تابلت) */
 @media (max-width: 992px) {
     #productsContainer,
     #homeProducts .row {
@@ -2014,7 +2008,7 @@ html {
     }
 }
 
-/* 7. تنسيق للموبايل (عرض أقل من 576px) */
+/* 6. شاشات صغيرة (موبايل) */
 @media (max-width: 576px) {
     #productsContainer,
     #homeProducts .row {
@@ -2034,16 +2028,16 @@ html {
     }
 }
 
-/* 8. تنسيق للشاشات الكبيرة جداً (أكثر من 1400px) */
+/* 7. شاشات كبيرة جداً (أكثر من 1400px) */
 @media (min-width: 1400px) {
     #productsContainer,
     #homeProducts .row {
         grid-template-columns: repeat(4, 1fr);
-        gap: 25px;
+        gap: 30px;
     }
     
     #productsContainer .product-img,
     #homeProducts .product-img {
-        height: 220px;
+        height: 240px;
     }
 }
